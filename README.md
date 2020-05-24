@@ -67,9 +67,20 @@ Este archivo permite configurar diversas opciones de la app, ver ejemplos en .en
 
 ## Docker
 
-Podemos ejecutar este servidor, directamente desde un contenedor Docker usando :
+Para crear el contenedor docker de este repositorio ejecutamos :
 
 ```bash
-docker build -t auth-node .
-docker run -d --name auth-node --network host auth-node
+docker build -t image-node .
+docker run -d --name image-node --network host auth-node
+```
+
+El contenedor se puede parar usando :
+
+```bash
+docker stop image-node
+```
+Se vuelve a levantar usando 
+
+```bash
+docker start image-node 
 ```
