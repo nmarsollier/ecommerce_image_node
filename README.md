@@ -70,17 +70,17 @@ Este archivo permite configurar diversas opciones de la app, ver ejemplos en .en
 Para crear el contenedor docker de este repositorio ejecutamos :
 
 ```bash
-docker build -t image-node .
-docker run -d --name image-node --network host auth-node
+docker build -t ecommerce-image-node .
+docker run -d --name ecommerce-image-node --network host ecommerce-image-node
 ```
 
 El contenedor se puede parar usando :
 
 ```bash
-docker stop image-node
+docker stop ecommerce-image-node
 ```
 Se vuelve a levantar usando 
 
 ```bash
-docker start image-node 
+docker start ecommerce-image-node 
 ```
