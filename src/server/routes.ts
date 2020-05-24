@@ -88,7 +88,7 @@ function create(req: IUserSessionRequest, res: express.Response, next: NextFunct
  */
 function findJpegById(req: express.Request, res: express.Response) {
   const id = escape(req.params.imageId);
-  const sizeHeader = req.header("Size") || req.query.Size.toString();
+  const sizeHeader = req.header("Size") || req.query.Size?.toString();
   image.findById(id, sizeHeader)
     .then(image => {
       const data = image.image.substring(image.image.indexOf(",") + 1);
@@ -120,7 +120,7 @@ function findJpegById(req: express.Request, res: express.Response) {
  */
 function findById(req: express.Request, res: express.Response) {
   const id = escape(req.params.imageId);
-  const sizeHeader = req.header("Size") || req.query.Size.toString();
+  const sizeHeader = req.header("Size") || req.query.Size?.toString();
   image.findById(id, sizeHeader)
     .then(image => res.json(image))
     .catch(err => error.handle(res, err));
