@@ -70,17 +70,17 @@ Este archivo permite configurar diversas opciones de la app, ver ejemplos en .en
 Tambien podemos usar docker en este repositorio, ejecutamos :
 
 ```bash
-docker build -t ecommerce-image-node .
-docker run -d --name ecommerce-image-node --network host ecommerce-image-node
+docker build -t dev-image-node .
+docker run -d --name dev-image-node --network host dev-image-node
 ```
 
 El contenedor se puede parar usando :
 
 ```bash
-docker stop ecommerce-image-node
+docker stop dev-image-node
 ```
 Se vuelve a levantar usando 
 
 ```bash
-docker start ecommerce-image-node 
+docker start dev-image-node 
 ```
