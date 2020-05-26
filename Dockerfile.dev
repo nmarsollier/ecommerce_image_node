@@ -1,0 +1,11 @@
+# Docker para desarrollo
+FROM node:14.3.0
+
+COPY . /app
+WORKDIR /app
+RUN npm install
+
+# Puerto de image service 
+EXPOSE 3001
+
+CMD ["npm","start"]
