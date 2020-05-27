@@ -65,27 +65,20 @@ Ademas se genera la documentación en formato markdown.
 
 Este archivo permite configurar diversas opciones de la app, ver ejemplos en .env.example
 
-## Docker
+## Docker para desarrollo
 
-Tambien podemos usar docker en este repositorio, ejecutamos :
+### Build
 
 ```bash
-docker build -t dev-image-node -f Dockerfile.dev .
+docker build --no-cache -t dev-image-node .
+```
 
-# Mac || Windows
-docker run -d --name dev-image-node -p 3001:3001 dev-image-node
+### El contenedor
+
+```bash
+# Mac | Windows
+docker run -it --name dev-image-node -p 3001:3001 -v $PWD:/app dev-image-node
 
 # Linux
-docker run --add-host host.docker.internal:172.17.0.1 -d --name dev-image-node -p 3001:3001 dev-image-node
-```
-
-El contenedor se puede parar usando :
-
-```bash
-docker stop dev-image-node
-```
-Se vuelve a levantar usando
-
-```bash
-docker start dev-image-node
+docker run -it --add-host host.docker.internal:172.17.0.1 --name dev-image-node -p 3001:3001 -v $PWD:/app dev-image-node
 ```
