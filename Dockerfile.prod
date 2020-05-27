@@ -13,4 +13,4 @@ RUN npm run build
 # Puerto para image service
 EXPOSE 3001
 
-CMD ["npm","run", "serve"]
+CMD cd dist; node server.js
