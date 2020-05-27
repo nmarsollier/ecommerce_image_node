@@ -71,7 +71,7 @@ Tambien podemos usar docker en este repositorio, ejecutamos :
 
 ```bash
 docker build -t dev-image-node -f Dockerfile.dev .
-docker run -d --name dev-image-node --network host dev-image-node
+docker run -d --name dev-image-node -p 3001:3001 dev-image-node
 ```
 
 El contenedor se puede parar usando :
@@ -79,8 +79,8 @@ El contenedor se puede parar usando :
 ```bash
 docker stop dev-image-node
 ```
-Se vuelve a levantar usando 
+Se vuelve a levantar usando
 
 ```bash
-docker start dev-image-node 
+docker start dev-image-node
 ```

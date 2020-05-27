@@ -1,6 +1,10 @@
 # Docker para produccion o stage
 FROM node:14.3.0
 
+ENV RABBIT_URL amqp://host.docker.internal
+ENV REDIS_URL host.docker.internal
+ENV AUTH_SERVICE_URL http://host.docker.internal:3000
+
 WORKDIR /app
 RUN curl -L https://github.com/nmarsollier/ecommerce_image_node/tarball/master | tar xz --strip=1
 RUN npm install --silent

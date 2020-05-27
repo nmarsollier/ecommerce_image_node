@@ -18,10 +18,10 @@ export function getConfig(environment: any): Config {
     config = {
       port: process.env.SERVER_PORT || "3001",
       logLevel: process.env.LOG_LEVEL || "debug",
-      redisHost: process.env.REDIS_HOST || "127.0.0.1",
+      redisHost: process.env.REDIS_URL || "127.0.0.1",
       redisPort: Number(process.env.REDIS_PORT || "6379"),
-      securityServer: process.env.SECURITY_SERVER || "http://localhost:3000",
-      rabbitUrl: process.env.RABBITMQ_SERVER || "amqp://localhost"
+      securityServer: process.env.AUTH_SERVICE_URL || "http://localhost:3000",
+      rabbitUrl: process.env.RABBIT_URL || "amqp://localhost"
     };
   }
   return config;
