@@ -71,7 +71,12 @@ Tambien podemos usar docker en este repositorio, ejecutamos :
 
 ```bash
 docker build -t dev-image-node -f Dockerfile.dev .
+
+# Mac || Windows
 docker run -d --name dev-image-node -p 3001:3001 dev-image-node
+
+# Linux
+docker run --add-host host.docker.internal:172.17.0.1 -d --name dev-image-node -p 3001:3001 dev-image-node
 ```
 
 El contenedor se puede parar usando :
