@@ -1,9 +1,9 @@
 "use strict";
-import * as redis from "ioredis";
+import  Redis from "ioredis";
 import * as appConfig from "./environment";
 
 const conf = appConfig.getConfig(process.env);
-let redisClient: redis.Redis;
+let redisClient: Redis;
 
 export function getRedisDocument(id: string): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ export function setRedisDocument(id: string, image: string): Promise<string> {
 
 function getClient() {
     if (!redisClient) {
-        redisClient = new redis(conf.redisPort, conf.redisHost);
+        redisClient = new Redis(conf.redisPort, conf.redisHost);
         redisClient.on("connect", function () {
             console.log("Redis conectado");
         });
