@@ -1,6 +1,6 @@
 "use strict";
 
-import * as logoutService from "./rabbit/logoutService";
+import * as logoutService from "./rabbit/consume_logout";
 import * as env from "./server/environment";
 import { Config } from "./server/environment";
 import * as express from "./server/express";

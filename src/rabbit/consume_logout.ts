@@ -4,8 +4,8 @@
  *  Servicios de escucha de eventos rabbit
  */
 import * as env from "../server/environment";
-import * as token from "../token";
-import { RabbitFanoutConsumer } from "./tools/fanoutConsumer";
+import * as token from "../domain/token";
+import { RabbitFanoutConsumer } from "./tools/fanout_consumer";
 
 const conf = env.getConfig(process.env);
 

@@ -66,9 +66,6 @@ export function handle(res: express.Response, err: any): express.Response {
       res.status(err.code);
     }
     return res.send({ error: err.error, messages: err.messages });
-  } else if (err.code) {
-    // Error de Mongo
-    return res.send(sendMongoose(res, err));
   } else {
     return res.send(sendUnknown(res, err));
   }
@@ -100,32 +97,4 @@ export function handle404(req: express.Request, res: express.Response) {
 function sendUnknown(res: express.Response, err: any): ValidationErrorMessage {
   res.status(ERROR_INTERNAL_ERROR);
   return { error: err };
-}
-
-// Obtiene un error adecuando cuando hay errores de db
-function sendMongoose(res: express.Response, err: any): ValidationErrorMessage {
-  res.status(ERROR_BAD_REQUEST);
-
-  try {
-    switch (err.code) {
-      case 11000:
-      case 11001:
-        const fieldName = err.errmsg.substring(
-          err.errmsg.lastIndexOf("index:") + 7,
-          err.errmsg.lastIndexOf("_1")
-        );
-        return {
-          messages: [{
-            path: fieldName,
-            message: "Este registro ya existe."
-          }]
-        };
-      default:
-        res.status(ERROR_BAD_REQUEST);
-        return { error: err };
-    }
-  } catch (ex) {
-    res.status(ERROR_INTERNAL_ERROR);
-    return { error: err };
-  }
 }

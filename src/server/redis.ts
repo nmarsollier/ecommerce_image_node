@@ -17,7 +17,6 @@ export function getRedisDocument(id: string): Promise<string> {
     });
 }
 
-
 export function setRedisDocument(id: string, image: string): Promise<string> {
     return new Promise((resolve, reject) => {
         getClient().set(id, image, function (err: any, reply: any) {

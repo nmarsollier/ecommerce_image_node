@@ -1,8 +1,8 @@
 "use strict";
 
 import * as jimp from "jimp";
-import * as error from "../server/error";
-import * as redis from "../server/redis";
+import * as error from "../../server/error";
+import * as redis from "../../server/redis";
 import { IImage } from "./schema";
 import escapeHTML = require("escape-html");
 

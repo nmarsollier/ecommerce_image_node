@@ -1,8 +1,8 @@
 "use strict";
 
 import { v1 as uuid } from "uuid";
-import * as error from "../server/error";
-import * as redis from "../server/redis";
+import * as error from "../../server/error";
+import * as redis from "../../server/redis";
 import { IImage } from "./schema";
 
 interface ImageRequest {
