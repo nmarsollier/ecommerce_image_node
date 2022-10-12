@@ -5,14 +5,9 @@
  */
 import * as env from "../server/environment";
 import * as token from "../domain/token";
-import { RabbitFanoutConsumer } from "./tools/fanout_consumer";
+import { IRabbitMessage, RabbitFanoutConsumer } from "./tools/fanout_consumer";
 
 const conf = env.getConfig(process.env);
-
-interface IRabbitMessage {
-    type: string;
-    message: any;
-}
 
 export function init() {
     const fanout = new RabbitFanoutConsumer("auth");

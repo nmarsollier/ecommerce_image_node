@@ -5,8 +5,17 @@
  */
 import amqp = require("amqplib");
 import * as env from "../../server/environment";
-import { RabbitProcessor, IRabbitMessage } from "./common";
 
+export interface IRabbitMessage {
+    type: string;
+    exchange?: string;
+    queue?: string;
+    message: any;
+}
+
+interface RabbitProcessor {
+    (source: IRabbitMessage): void;
+}
 
 export class RabbitFanoutConsumer {
     conf = env.getConfig(process.env);

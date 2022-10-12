@@ -9,7 +9,7 @@ import * as morgan from "morgan";
 import * as path from "path";
 import { Config } from "./environment";
 import * as error from "./error";
-import * as routes from "../rest/routes";
+import * as routes from "../rest";
 
 export function init(appConfig: Config): express.Express {
   // Notas de configuración de express http://expressjs.com/es/guide/using-middleware.html#middleware.application
